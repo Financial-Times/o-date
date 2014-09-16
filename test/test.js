@@ -35,28 +35,28 @@ test('formatting dates using custom formats', function (t) {
 test('getting time ago', function (t) {
     var formatsLow = {
         '2 seconds ago': 2,
-        'a minute ago': 45,
+        'A minute ago': 45,
         '2 minutes ago': 90,
-        'an hour ago': 45 * 60,
+        'An hour ago': 45 * 60,
         '2 hours ago': 90 * 60,
-        'a day ago': 22 * 60 * 60,
+        'A day ago': 22 * 60 * 60,
         '2 days ago': 36 * 60 * 60,
-        'a month ago': 25 * 60 * 60 * 24,
+        'A month ago': 25 * 60 * 60 * 24,
         '2 months ago': 45 * 60 * 60 * 24,
-        'a year ago': 345 * 60 * 60 * 24,
+        'A year ago': 345 * 60 * 60 * 24,
         '2 years ago': 547 * 60 * 60 * 24,
     };
     var formatsHigh = {
         '44 seconds ago': (45) - 1,
-        'a minute ago': (90) - 1,
+        'A minute ago': (90) - 1,
         '45 minutes ago': (45 * 60) - 1,
-        'an hour ago': (90 * 60) - 1,
+        'An hour ago': (90 * 60) - 1,
         '22 hours ago': (22 * 60 * 60) - 1,
-        'a day ago': (36 * 60 * 60) - 1,
+        'A day ago': (36 * 60 * 60) - 1,
         '25 days ago': (25 * 60 * 60 * 24) - 1,
-        'a month ago': (45 * 60 * 60 * 24) - 1,
+        'A month ago': (45 * 60 * 60 * 24) - 1,
         '11 months ago': (345 * 60 * 60 * 24) - 1,
-        'a year ago': (547 * 60 * 60 * 24) - 1,
+        'A year ago': (547 * 60 * 60 * 24) - 1,
     };
     t.plan(Object.keys(formatsLow).length + Object.keys(formatsHigh).length);
 

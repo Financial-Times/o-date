@@ -92,23 +92,23 @@ function timeAgo (date, interval) {
 	if (interval < 45) {
 		return interval + ' seconds ago';
 	} else if (interval < 90) {
-		return 'a minute ago';
+		return 'A minute ago';
 	} else if (interval < 45 * 60) {
 		return Math.round(interval / 60) + ' minutes ago';
 	} else if (interval < 90 * 60) {
-		return 'an hour ago';
+		return 'An hour ago';
 	} else if (interval < 22 * 60 * 60) {
 		return  Math.round(interval / (60 * 60)) + ' hours ago';
 	} else if (interval < 36 * 60 * 60) {
-		return 'a day ago';
+		return 'A day ago';
 	} else if (interval < 25 * 60 * 60 * 24) {
 		return Math.round(interval / (60 * 60 * 24)) + ' days ago';
 	} else if (interval < 45 * 60 * 60 * 24) {
-		return 'a month ago';
+		return 'A month ago';
 	} else if (interval < 345 * 60 * 60 * 24) {
 		return Math.round(interval / (60 * 60 * 24 * 30)) + ' months ago';
 	} else if (interval < 547 * 60 * 60 * 24) {
-		return 'a year ago';
+		return 'A year ago';
 	} else {
 		return Math.max(2, Math.round(interval / (60 * 60 * 24 * 365))) + ' years ago';
 	}
