@@ -1,16 +1,15 @@
 {
-  "description": "Utility for formatting and updating dates",
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "support": "https://github.com/Financial-Times/o-date/issues",
-  "supportStatus": "experimental",
-  "features": {
+    "description": "Utility for formatting and updating dates",
+    "origamiType": "module",
+    "origamiVersion": 1,
+    "support": "https://github.com/Financial-Times/o-date/issues",
+    "supportStatus": "experimental",
+    "features": {
     "required": [
       "classlist",
       "customevent"
     ]
-  },
-  "demos": [
+    "demos": [
     {
       "path": "/demos/declarative.html",
       "expanded": true,

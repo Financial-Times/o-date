@@ -1,22 +1,31 @@
 {
+  "private": true,
+  "scripts": {
+    "test": "karma start karma.conf.js",
+    "tdd": "karma start karma.conf.js --single-run=false --auto-watch=true"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "debowerify": "Financial-Times/debowerify",
+    "karma": "^0.12.31",
+    "karma-browserify": "^4.0.0",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "mocha": "^2.1.0",
+    "babelify": "^5.0.4"
+  },
   "name": "o-date",
   "version": "0.0.0",
   "description": "FT branded dates",
   "main": "main.js",
-  "scripts": {
-    "test": "node ./test/test"
-  },
+  "author": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/Financial-Times/o-date.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Financial-Times/o-date/issues"
   },
   "homepage": "https://github.com/Financial-Times/o-date",
-  "devDependencies": {
-    "tape": "~2.13.0"
-  }
 }
