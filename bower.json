@@ -1,10 +1,11 @@
 {
   "name": "o-date",
+  "dependencies": {},
   "main": [
     "main.js"
   ],
   "ignore": [
     "test",
-    "package.json"
+    ".gitignore"
   ]
 }
