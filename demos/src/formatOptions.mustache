@@ -1,18 +1,12 @@
 <br>
 <div>Browser time: <time id="current-date"></time></div>
 <br>
-<table class="o-table " data-o-component="o-table">
-	<thead>
-		<th>Publish Date</th>
-		<th>Default o-date output</th>
-		<th><i>time-ago-limit-4-hours</i> output</th>
-		<th><i>date-only</i> output</th>
-		<th><i>as-today-or-yesterday-or-nothing</i> output</th>
-		<!--<th><i>init</i> output</th>-->
+<table class="o-table o-table--horizontal-lines o-table--vertical-lines o-table--horizontal-borders o-table--vertical-borders o-table--row-stripes" data-o-component="o-table">
+	<thead class="o-table--horizontal-borders">
 	</thead>
 	<tbody>
 		<tr>
-			<td>Recently</td>
+			<td class="publish-dates"></td>
 			<td><time data-o-component="o-date" class="o-date" datetime=""></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="time-ago-limit-4-hours"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="date-only"></time></td>
@@ -20,7 +14,7 @@
 		</tr>
 
 		<tr>
-			<td>Earlier today</td>
+			<td class="publish-dates"></td>
 			<td><time data-o-component="o-date" class="o-date" datetime=""></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="time-ago-limit-4-hours"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="date-only"></time></td>
@@ -28,7 +22,7 @@
 		</tr>
 
 		<tr>
-			<td>Yesterday</td>
+			<td class="publish-dates"></td>
 			<td><time data-o-component="o-date" class="o-date" datetime=""></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="time-ago-limit-4-hours"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="date-only"></time></td>
@@ -36,16 +30,15 @@
 		</tr>
 
 		<tr>
-			<td>Few days ago</td>
+			<td class="publish-dates"></td>
 			<td><time data-o-component="o-date" class="o-date" datetime=""></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="time-ago-limit-4-hours"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="date-only"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="" data-o-date-format="today-or-yesterday-or-nothing"></time></td>
 		</tr>
 
-
 		<tr>
-			<td>Long ago</td>
+			<td class="publish-dates"></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z" data-o-date-format="time-ago-limit-4-hours"></time></td>
 			<td><time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z" data-o-date-format="date-only"></time></td>
