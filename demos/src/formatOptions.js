@@ -7,11 +7,11 @@ const daysAgo = new Date();
 recently.setMinutes(now.getMinutes() - 23);
 today.setHours(now.getHours() - 6);
 yesterday.setHours(now.getHours() - 24);
-daysAgo.setDate(now.getDay() - 2);
+daysAgo.setDate(now.getDate() - 3);
 
 const formats = ['Publish Date', 'Default o-date output', 'time-ago-limit-4-hours output', 'date-only output', 'as-today-or-yesterday-or-nothing output'];
 const moments = [now, recently, today, yesterday, daysAgo];
-const momentNames = ['Now', 'Recently', 'Earlier today', 'Yesterday', 'Few Days Ago', 'Long Ago'];
+const momentNames = ['Recently', 'Earlier today', 'Yesterday', 'Few Days Ago', 'Long Ago'];
 const publishDates = 	document.getElementsByClassName('publish-dates');
 
 // Current browser time displayed
