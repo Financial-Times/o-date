@@ -24,7 +24,6 @@
 			"name": "declarative",
 			"template": "demos/src/declarative.mustache",
 			"js": "demos/src/declarative.js",
-			"expanded": false,
 			"hidden": true,
 			"description": "Date will be set using the string in the datetime attribute and rendered as an absolute date as it was over a year ago."
 		},
@@ -32,14 +31,12 @@
 			"name": "imperative",
 			"template": "demos/src/imperative.mustache",
 			"js": "demos/src/imperative.js",
-			"expanded": false,
 			"hidden": true,
 			"description": "We're setting the datetime attribute on both date elements imperatively and these are then rendered as relative dates"
 		},
 		{
 			"name": "formatOptions",
 			"template": "demos/src/formatOptions.mustache",
-			"expanded": true,
 			"js": "demos/src/formatOptions.js",
 			"description": "Table including the three different formatting options in this component"
 		}
