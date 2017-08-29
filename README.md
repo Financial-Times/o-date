@@ -39,6 +39,8 @@ You can also run `require('o-date').init()` once the DOM has loaded if you don't
 
 Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
 
+By default the FT Time format shows relative time for the first 4 hours after content is published. This duration can be changed by setting the value of `ODate.ftTime.relativeHoursInSeconds`.
+
 #### o-date#format(date, tpl)
 
 Returns a date formatted as a string
