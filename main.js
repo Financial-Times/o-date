@@ -187,7 +187,7 @@ ODate.ftTime = function(dateObj) {
 		dateString = ODate.format(dateObj, 'date');
 
 	// Relative times for today or within the last 4 hours
-	} else if (ODate.isToday(dateObj, now, interval) || (interval < (4 * inSeconds.hour))) {
+	} else if (ODate.isToday(dateObj, now, interval) || (interval < (ODate.ftTime.relativeHoursInSeconds))) {
 		dateString = ODate.timeAgo(dateObj, interval);
 
 	// 'Yesterday' for dates that occurred yesterday
@@ -201,6 +201,8 @@ ODate.ftTime = function(dateObj) {
 
 	return dateString;
 };
+
+ODate.ftTime.relativeHoursInSeconds = 4*inSeconds.hour;
 
 ODate.isNearFuture = function(interval) {
 	// If the interval within the next 5 minutes
