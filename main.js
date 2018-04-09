@@ -7,6 +7,8 @@ const formats = {
 	date: 'MMMM d, yyyy'
 };
 
+const updateEventName = 'oDate.update';
+
 const compiledTemplates = {};
 
 /**
@@ -15,7 +17,7 @@ const compiledTemplates = {};
  *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
 const formatReplacementsMap = {
-	MMMM: 'months[date.getMonth()]',  // e.g. February
+	MMMM: 'months[date.getMonth()]', // e.g. February
 	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
 	M: '(date.getMonth() + 1)', // 2
@@ -59,19 +61,24 @@ function ODate(rootEl) {
 	}
 
 	if (this.el !== undefined) {
-		document.body.addEventListener('oDate.update', () => {
-			this.update();
-		});
+		document.body.addEventListener(updateEventName, this);
 
 		this.update();
 	}
 
 	if (!interval) {
 		interval = setInterval(function() {
-			document.body.dispatchEvent(new CustomEvent('oDate.update'));
+			document.body.dispatchEvent(new CustomEvent(updateEventName));
 		}, 60000);
 	}
 }
+
+// Use object-level event listener method so a new function doesn't need to be bound for each instance
+ODate.prototype.handleEvent = function(e) {
+	if (e.type === updateEventName) {
+		this.update();
+	}
+};
 
 ODate.prototype.update = function() {
 	let el = this.el;
@@ -89,7 +96,9 @@ ODate.prototype.update = function() {
 		date = new Date();
 	}
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	let dateString;
 
@@ -99,6 +108,8 @@ ODate.prototype.update = function() {
 		dateString = ODate.format(date, 'date');
 	} else if (format === 'time-ago-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
+	} else if (format === 'time-ago-abbreviated') {
+		dateString = ODate.timeAgo(date, { abbreviated: true });
 	} else if (format === 'time-ago-abbreviated-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { abbreviated: true, limit: 4*inSeconds.hour });
 	} else if (format === 'time-ago-no-seconds') {
@@ -122,6 +133,11 @@ ODate.prototype.update = function() {
 	el.setAttribute('aria-label', dateString);
 };
 
+ODate.prototype.destroy = function() {
+	document.body.removeEventListener(updateEventName, this);
+	this.el = null;
+};
+
 function compile(format) {
 	const tpl = formats[format] || format;
 
@@ -136,7 +152,7 @@ function compile(format) {
 		return replacer ? '" + ' + replacer + ' + "' : match;
 	}) + '"';
 
-	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
+	return (compiledTemplates[format] = new Function('date', funcString)); // eslint-disable-line no-new-func
 }
 
 ODate.toDate = function(date) {
@@ -215,7 +231,9 @@ ODate.isYesterday = function(date, now, interval) {
 ODate.timeAgo = function(date, interval, options) {
 
 	date = ODate.toDate(date);
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	// Accept an interval argument for backwards compatibility
 	if (arguments.length === 2 && typeof interval === 'object') {
@@ -262,7 +280,9 @@ ODate.timeAgo = function(date, interval, options) {
 
 ODate.asTodayOrYesterdayOrNothing = function(date){
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	const now = new Date();
 	const interval = ODate.getSecondsBetween(now, date);
@@ -283,7 +303,9 @@ ODate.asTodayOrYesterdayOrNothing = function(date){
 
 ODate.timeAgoNoSeconds = function(date){
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	const now = new Date();
 	const interval = ODate.getSecondsBetween(now, date);

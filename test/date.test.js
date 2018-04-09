@@ -353,14 +353,14 @@ describe('o-date', () => {
 			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
-			Date = sinon.spy(input => {
+			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
 				input = input || mockDate;
 				return new OriginalDate(input);
 			});
 		});
 
 		afterEach(() => {
-			Date = OriginalDate;
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('accepts a value in seconds and returns a corresponding string', () => {
@@ -401,23 +401,26 @@ describe('o-date', () => {
 				date = date - (formatsHigh[format] * 1000);
 				proclaim.strictEqual(oDate.timeAgo(date), format, `HIGH: ${format}`);
 			});
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns `undefined` if the param passed in is not a date', () => {
 			proclaim.strictEqual(oDate.timeAgo('not a date'), undefined);
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns the timeAgo up to a limit if a limit value is provided', () => {
 			const publishDate = new Date('Jul 13 2016 10:02:49');
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:48', // 59 minutes and 59 seconds later
-				'Jul 13 2016 10:02:50'  // 1 second later
+				'Jul 13 2016 10:02:50' // 1 second later
 			];
 
 			for (let date of datesWithinLimit) {
 				mockDate = date;
 				proclaim.notStrictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns nothing if a limit is provided and the timeAgo is longer than that limit', () => {
@@ -425,13 +428,14 @@ describe('o-date', () => {
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:51', // 60 minutes, 2 seconds later
 				'Jul 13 2016 23:02:52', // 12 hours, 3 seconds later
-				'Jul 14 2016 10:02:49'  // the next day
+				'Jul 14 2016 10:02:49' // the next day
 			];
 
 			for (let date of datesWithinLimit) {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('accepts an interval option', () => {
@@ -446,6 +450,7 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
 			}
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('accepts the interval option as a second argument for backwards compatibility', () => {
@@ -460,6 +465,7 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, 5), '5 seconds ago');
 			}
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns abbreviations if the abbreviated option is provided', () => {
@@ -482,6 +488,7 @@ describe('o-date', () => {
 				date = date - (abbreviations[abbreviation] * 1000);
 				proclaim.strictEqual(oDate.timeAgo(date, { abbreviated: true }), abbreviation);
 			});
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 	});
 
@@ -497,14 +504,14 @@ describe('o-date', () => {
 			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
-			Date = sinon.spy(input => {
+			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
 				input = input || mockDate;
 				return new OriginalDate(input);
 			});
 		});
 
 		afterEach(() => {
-			Date = OriginalDate;
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns "today" if isToday returns true', () => {
@@ -522,6 +529,7 @@ describe('o-date', () => {
 
 			oDate.isToday.restore();
 			oDate.isYesterday.restore();
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns "yesterday" if isYesterday returns true AND isToday is false', () => {
@@ -543,6 +551,7 @@ describe('o-date', () => {
 
 			oDate.isToday.restore();
 			oDate.isYesterday.restore();
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it("returns '' if isToday and isYesterday are both false", () => {
@@ -564,6 +573,7 @@ describe('o-date', () => {
 
 			oDate.isToday.restore();
 			oDate.isYesterday.restore();
+			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 	});
 
