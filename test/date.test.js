@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+const proclaim = require('proclaim');
+const sinon = require('sinon/pkg/sinon');
 
 const oDate = require('../main');
 
