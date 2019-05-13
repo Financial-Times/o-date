@@ -1,6 +1,6 @@
 {
-	"description": "Utility for formatting and updating dates",
-	"keywords": "datetime time timestamp",
+	"description": "This component provides JavaScript utilities for formatting and updating dates in FT style. This component is useful to format dates to express relative time.",
+	"keywords": ["datetime", "time", "timestamp"],
 	"origamiType": "module",
 	"origamiCategory": "utilities",
 	"origamiVersion": 1,
