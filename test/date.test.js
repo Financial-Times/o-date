@@ -41,12 +41,12 @@ describe('o-date', () => {
 		const someDate = new Date("Mon Jul 18 2016 23:12:11");
 
 		const someTimes = {
-			"midnight": new Date("Monday July 18 00:01"),
-			"1am":		new Date("Monday July 18 01:00"),
-			"10am":	 new Date("Monday July 18 10:00"),
-			"midday":	 new Date("Monday July 18 12:00"),
-			"1pm":		new Date("Monday July 18 13:00"),
-			"11pm":	 new Date("Monday July 18 23:00"),
+			"midnight": new Date("Monday July 18, 2016 00:01"),
+			"1am":		new Date("Monday July 18, 2016 01:00"),
+			"10am":	 new Date("Monday July 18, 2016 10:00"),
+			"midday":	 new Date("Monday July 18, 2016 12:00"),
+			"1pm":		new Date("Monday July 18, 2016 13:00"),
+			"11pm":	 new Date("Monday July 18, 2016 23:00"),
 		};
 
 		it('returns a date if "date" is passed in as a second argument', () => {
