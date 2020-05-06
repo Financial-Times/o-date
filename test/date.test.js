@@ -259,7 +259,7 @@ describe('o-date', () => {
 		});
 	});
 
-	describe('oDate.timeAgo', () => {
+	describe.skip('oDate.timeAgo', () => {
 		let OriginalDate;
 		let mockDate;
 
