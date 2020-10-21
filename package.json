@@ -12,11 +12,11 @@
     },
     "main": "main.js",
     "peerDependencies": {
-        "@financial-times/ft-date-format": "^100.0.0-4"
+        "@financial-times/ft-date-format": "^100.0.0-5"
     },
     "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
     "publishConfig": {
         "registry": "http://localhost:4873"
     },
-    "version": "100.0.0-4"
+    "version": "100.0.0-5"
 }

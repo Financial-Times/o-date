@@ -86,13 +86,13 @@ Instantiate o-date JavaScript in the [same way as other Origami components](http
 
 For example call the `init` method to initialise all `o-date` instances on the page:
 ```js
-import ODate from 'o-date'
+import ODate from '@financial-times/o-date'
 ODate.init();
 ```
 
 Pass a specific element:
 ```js
-import ODate from 'o-date'
+import ODate from '@financial-times/o-date'
 const myDateElement = document.querySelector('#my-date');
 ODate.init(myDateElement);
 ```
