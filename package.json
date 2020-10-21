@@ -1,14 +1,22 @@
 {
-	"private": true,
-	"name": "o-date",
-	"devDependencies": {
-		"eslint": "^7.8.1",
-		"eslint-config-origami-component": "^2.1.0",
-		"origami-ci-tools": "^2.0.2",
-		"remark": "^12.0.1",
-		"remark-lint": "^7.0.1",
-		"remark-preset-lint-origami-component": "^1.1.3",
-		"stylelint": "^13.7.0",
-		"stylelint-config-origami-component": "^1.0.4"
-	}
+    "name": "o-date",
+    "devDependencies": {
+        "eslint": "^7.8.1",
+        "eslint-config-origami-component": "^2.1.0",
+        "origami-ci-tools": "^2.0.2",
+        "remark": "^12.0.1",
+        "remark-lint": "^7.0.1",
+        "remark-preset-lint-origami-component": "^1.1.3",
+        "stylelint": "^13.7.0",
+        "stylelint-config-origami-component": "^1.0.4"
+    },
+    "main": "main.js",
+    "peerDependencies": {
+        "@financial-times/ft-date-format": "^1.0.1"
+    },
+    "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
+    "publishConfig": {
+        "registry": "http://localhost:4873"
+    },
+    "version": "5.0.0-0"
 }
