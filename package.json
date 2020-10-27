@@ -1,6 +1,6 @@
 {
     "name": "@financial-times/o-date",
-    "version": "100.0.0-7",
+    "version": "100.0.0-8",
     "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
     "license": "MIT",
     "type": "module",
@@ -22,7 +22,7 @@
         "stylelint-config-origami-component": "^1.0.4"
     },
     "peerDependencies": {
-        "@financial-times/ft-date-format": "^100.0.0-7"
+        "@financial-times/ft-date-format": "^100.0.0-8"
     },
     "publishConfig": {
         "registry": "http://localhost:4873"
