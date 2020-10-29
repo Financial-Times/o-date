@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-date",
-  "version": "100.0.0-10",
+  "version": "100.0.0-11",
   "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
   "keywords": [],
   "homepage": "https://github.com/Financial-Times/o-date#readme",
@@ -33,7 +33,7 @@
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "@financial-times/ft-date-format": "^100.0.0-10"
+    "@financial-times/ft-date-format": "^100.0.0-11"
   },
   "publishConfig": {
     "registry": "https://origami-npm-registry-prototype.herokuapp.com"
