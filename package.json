@@ -33,7 +33,7 @@
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "@financial-times/ft-date-format": "^100.0.0-12"
+    "ft-date-format": "^100.0.0-12"
   },
   "publishConfig": {
     "registry": "https://origami-npm-registry-prototype.herokuapp.com"
