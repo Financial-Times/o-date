@@ -191,8 +191,8 @@ class ODate {
 			printer.innerHTML = dateString;
 		}
 
-		if (dateString) {
-			printer.setAttribute('aria-label', labelString || dateString);
+		if (dateString && labelString) {
+			printer.setAttribute('aria-label', labelString);
 		} else {
 			printer.removeAttribute('aria-label');
 		}
