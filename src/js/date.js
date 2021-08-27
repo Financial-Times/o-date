@@ -179,22 +179,71 @@ class ODate {
 			dateString = ftDateFormat.ftTime(date);
 		}
 
-		// To avoid triggering a parent live region unnecessarily
+		const hasAlternativeLabel = Boolean(labelString) && labelString !== dateString;
+
+		// Using nodeValue to avoid triggering a parent live region unnecessarily
 		// <https://github.com/Financial-Times/o-date/pull/43>
 		const hasSingleTextNode = printer.childNodes.length === 1 &&
 			printer.firstChild &&
 			printer.firstChild.nodeType === 3;
 
-		if (hasSingleTextNode) {
-			printer.firstChild.nodeValue = dateString;
-		} else {
-			printer.innerHTML = dateString;
+
+		// Do nothing if given fallback matches generated text.
+		if (
+			!hasAlternativeLabel &&
+			hasSingleTextNode &&
+			printer.firstChild.nodeValue.trim() === dateString
+		) {
+			return;
 		}
 
-		if (dateString) {
-			printer.setAttribute('aria-label', labelString || dateString);
+		// Remove any user defined fallback.
+		if (hasSingleTextNode) {
+			printer.firstChild.nodeValue = '';
+		}
+
+		let dateTextElement = printer.querySelector('[data-o-date-text]');
+		let dateLabelElement = printer.querySelector('[data-o-date-label]');
+
+		// Create / update the text element, hidden from screen readers
+		// if there is an alternative label.
+		if (dateTextElement) {
+			dateTextElement.firstChild.nodeValue = dateString;
 		} else {
-			printer.removeAttribute('aria-label');
+			dateTextElement = document.createElement('span');
+			dateTextElement.setAttribute('data-o-date-text', true);
+			if (hasAlternativeLabel) {
+				dateTextElement.setAttribute('aria-hidden', true);
+			}
+			dateTextElement.innerHTML = dateString;
+			printer.appendChild(dateTextElement);
+		}
+
+		// Create / update the hidden label element, which is visually hidden
+		// to provide more context to screen reader users.
+		if (hasAlternativeLabel) {
+			if (dateLabelElement) {
+				dateLabelElement.firstChild.nodeValue = labelString;
+			} else {
+				dateLabelElement = document.createElement('span');
+				dateLabelElement.setAttribute('data-o-date-label', true);
+				// Use inline styles ro visually hide the label. Adding
+				// required styles with Sass is a breaking change, as users
+				// would need to take action to include them.
+				dateLabelElement.setAttribute('style', `
+					position: absolute;
+					clip: rect(0 0 0 0);
+					clip-path: polygon(0 0, 0 0);
+					margin: -1px;
+					border: 0;
+					overflow: hidden;
+					padding: 0;
+					width: 1px;
+					height: 1px;
+					white-space: nowrap;`.replace(/\s+/g, ' '));
+				dateLabelElement.innerHTML = labelString;
+				printer.appendChild(dateLabelElement);
+			}
 		}
 	}
 
