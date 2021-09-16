@@ -1,5 +1,11 @@
 # o-date
 
+***
+
+**This component has moved to the [Origami Component System](https://github.com/Financial-Times/origami).**
+
+***
+
 o-date formats `time` elements in the FT style, and supports formatting dates in relative time.
 
 - [Usage](#usage)
